@@ -4,7 +4,20 @@ angular.module('quizzApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.question = {};
 
-    $http.get('/api/questions/55b8f80122267d6030138dc1').success(function(question) {
-      $scope.question = question;
-    });
+    var getCurrentQuestion = function() {
+      $http.get('/api/questions/current').success(function (question) {
+        $scope.question = question;
+      });
+    };
+
+    $scope.startAnswer = function(event){
+      event.preventDefault();
+    };
+    $scope.answer=function(value) {
+      $http.post('/api/answers', {answer: value});
+    };
+
+    socket.socket.on("answer:save", getCurrentQuestion);
+
+    getCurrentQuestion();
   });

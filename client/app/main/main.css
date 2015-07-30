@@ -26,3 +26,7 @@
 .navbar-text {
     margin-left: 15px;
 }
+
+.btn:focus, .btn:active{
+  outline: none;
+}

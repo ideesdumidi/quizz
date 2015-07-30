@@ -72,6 +72,40 @@ body {
   display: inline-block;
 }
 
+.btn-xl, .btn-group-xl > .btn {
+  padding: 10px 16px;
+  font-size: 50px;
+  line-height: 2;
+  border-radius: 100%;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 300px;
+  height: 300px;
+  padding: 10px 16px;
+  font-size: 34px;
+  line-height: 1.33;
+  border-radius: 150px;
+}
+
+
 .footer {
   text-align: center;
   border-top: 1px solid #E5E5E5;
