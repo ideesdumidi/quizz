@@ -12,8 +12,8 @@ exports.register = function (socket) {
             var answerModel = new Answer({ answer: answer, user: user.id, question: user.question });
             answerModel.save(function (err) {
                 var nextQuestionId = ++user.question;
-                Question.findOne({ index: nextQuestionId }, function (err) {
-                    user.question = err ? 1 : nextQuestionId;
+                Question.findOne({ index: nextQuestionId }, function (err, question) {
+                    user.question = (err || !question) ? 1 : nextQuestionId;
                     user.save();
                 });
             });
