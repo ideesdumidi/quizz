@@ -18,7 +18,7 @@ Question.find({}).remove(function(){
       answer1: 'génial !',
       answer2: 'j\'adore !'
     }, {
-      label: 'qu\'elle est la couleur du cheval gris d\'henri IV?',
+      label: 'quelle est la couleur du cheval gris d\'henri IV?',
       answer1: 'blanc',
       answer2: 'noir'
     });

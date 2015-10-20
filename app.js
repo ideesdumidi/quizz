@@ -50,7 +50,8 @@ server.listen(config.port, function(){
 var dispatcher = require('httpdispatcher');
 
 //For all your static (js/css/images/etc.) set the directory name (relative path).
-dispatcher.setStatic('app/resources');
+dispatcher.setStatic('resources');
+dispatcher.setStaticDirname('./app');
 
 //A sample GET request    
 dispatcher.onGet("/", function(req, res) {

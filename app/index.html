@@ -1,15 +1,27 @@
 <html>
 
 <head>
+  <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 </head>
 
 <body>
-  <section>
-    <h2 id="title"></h2>
-    <p id="answer1"></p>
-    <p id="answer2"></p>
-  </section>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+
+        <div class="inner cover">
+          <h1 id="title" class="cover-heading"></h1>
+          <p class="lead text-center">
+            <span id="answer1" class="btn btn-blue"></span>
+            <span id="answer2" class="btn red"></span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </body>
+
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
