@@ -13,9 +13,6 @@ html,body{
   margin:0;
 }
 
-h1, .h1 {
-    font-size: 36px;
-}
 h1, .h1, h2, .h2, h3, .h3 {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -24,9 +21,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 500;
     line-height: 1.1;
 }
+h1, .h1 {
+    font-size: 56px;
+    margin-bottom: 50px;
+}
 
 .lead {
-    font-size: 21px;
+    font-size: 31px;
     margin-bottom: 20px;
     font-weight: 300;
     line-height: 1.4;
@@ -36,17 +37,16 @@ p {
 }
 
 .btn{
-  margin:0;
+    margin:10px 40px;
     padding: 10px 20px;
     font-weight: bold;
     color: #fff;
     background-color: #31b0d5;
     border-color: #269abc;
     outline: 0;
-    font-size: 18px;
     line-height: 1.33;
     border-radius: 6px;
-        display: inline-block;
+    display: inline-block;
 }
 
 .btn.red{
@@ -83,4 +83,16 @@ p {
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
+}
+
+.fade{
+    -webkit-transition: all 0.4s; /* Safari */
+    transition: all 0.4s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    opacity: 1;
+}
+
+.hide{
+  opacity: 0;
 }
