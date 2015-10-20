@@ -5,24 +5,21 @@
 'use strict';
 
 var Question = require('./question.model');
+var User = require('../user/user.model');
 
-exports.register = function(socket) {
-  Question.schema.post('save', function (doc) {
-    onSave(socket, doc);
-  });
-  Question.schema.post('remove', function (doc) {
-    onRemove(socket, doc);
-  });
-  
-  Question.find({}).then(function (results) {
-    socket.emit('questions', results);
-  });
-}
+exports.register = function (socket) {
+  socket.on('question:requestCurrent', getCurrentQuestion);
 
-function onSave(socket, doc, cb) {
-  socket.emit('question:save', doc);
-}
+  getCurrentQuestion();
 
-function onRemove(socket, doc, cb) {
-  socket.emit('question:remove', doc);
-}
+
+  function getCurrentQuestion() {
+    var userId = socket.handshake.query.user;
+    User.getCurrentUser(userId, function (user) {
+      Question.findOne({ index: user.question }).then(function (question) {
+        socket.emit('question:current', question);
+      });
+    });
+  }
+
+};

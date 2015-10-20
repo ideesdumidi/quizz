@@ -1,20 +1,32 @@
 <html>
-	<head>
-		
-	</head>
-	<body>
-		Ceci est un test
-	</body>
-	
-	<script src="/socket.io/socket.io.js"></script>
+
+<head>
+</head>
+
+<body>
+  <section>
+    <h2 id="title"></h2>
+    <p id="answer1"></p>
+    <p id="answer2"></p>
+  </section>
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io('http://localhost:8080');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
+  var socket = io('http://localhost:1234',{query:"user=user1"});
+
+  socket.on('question:current', function (question) {    
+    document.getElementById("title").innerHTML = question.label;
+    document.getElementById("answer1").innerHTML = question.answer1;
+    document.getElementById("answer2").innerHTML = question.answer2;
   });
-    socket.on('questions', function (data) {
-    console.log(data);
+  
+  socket.on('user:save', function () {
+      socket.emit("question:requestCurrent");
   });
+  
+  socket.emit("question:requestCurrent");
+
 </script>
-	</html>
+
+</html>

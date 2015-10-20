@@ -1,24 +1,23 @@
-/**
- * Broadcast updates to client when the model changes
- */
-
 'use strict';
 
 var Answer = require('./answer.model');
+var User = require('../user/user.model');
+var Question = require('../question/question.model');
 
 exports.register = function (socket) {
-  Answer.schema.post('save', function (doc) {
-    onSave(socket, doc);
-  });
-  Answer.schema.post('remove', function (doc) {
-    onRemove(socket, doc);
-  });
-}
+    socket.on('answer:add', function (answer) {
+        var userId = socket.handshake.query.user;
 
-function onSave(socket, doc, cb) {
-  socket.emit('answer:save', doc);
-}
+        User.getCurrentUser(userId, function (user) {
+            var answerModel = new Answer({ answer: answer, user: user.id, question: user.question });
+            answerModel.save(function (err) {
+                var nextQuestionId = ++user.question;
+                Question.findOne({ index: nextQuestionId }, function (err) {
+                    user.question = err ? 1 : nextQuestionId;
+                    user.save();
+                });
+            });
 
-function onRemove(socket, doc, cb) {
-  socket.emit('answer:remove', doc);
+        });
+    });
 }
