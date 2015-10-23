@@ -4,8 +4,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var AnswerSchema = new Schema({
-  user: Schema.Types.ObjectId,
-  question: Schema.Types.ObjectId,
+  user: {type:String},
+  question: {type:Number},
   answer: String,
   date: {type:Date, default:Date.now}
 });

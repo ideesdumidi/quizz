@@ -43,15 +43,19 @@ function removeClass(el, className) {
 }
   
   var socket = io('http://localhost:1234',{query:"user=user1"});
-
+  
   socket.on('question:current', function (question) {
-    addClass(document.getElementById("question"), 'hide');
     window.setTimeout(function(){
-    document.getElementById("title").innerHTML = question.label;
-    document.getElementById("answer1").innerHTML = question.answer1;
-    document.getElementById("answer2").innerHTML = question.answer2;
-    removeClass(document.getElementById("question"), 'hide');      
-    },800); 
+      addClass(document.getElementById("question"), 'hide');
+      window.setTimeout(function(){
+        document.getElementById("title").innerHTML = question.label;
+        document.getElementById("answer1").innerHTML = question.answer1;
+        document.getElementById("answer2").innerHTML = question.answer2;
+        removeClass(document.getElementById("question"), 'hide');  
+      removeClass(document.getElementById("answer1"), 'hover');
+      removeClass(document.getElementById("answer2"), 'hover');    
+      },800); 
+    },2000); 
   });
   
   socket.on('user:save', function () {
@@ -60,6 +64,14 @@ function removeClass(el, className) {
   
   socket.emit("question:requestCurrent");
 
+  
+  socket.on('answered', function (answer) {
+    addClass(document.getElementById("answer"+answer), 'hover');
+    window.setTimeout(function(){ 
+      removeClass(document.getElementById("answer1"), 'hover');
+      removeClass(document.getElementById("answer2"), 'hover');    
+    },800); 
+  });
 </script>
 
 </html>

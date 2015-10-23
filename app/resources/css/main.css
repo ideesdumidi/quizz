@@ -46,11 +46,25 @@ p {
     line-height: 1.33;
     border-radius: 6px;
     display: inline-block;
+    -webkit-box-shadow: 0 0 0px rgba(255,255,255,.1),inset 0 0 50px rgba(0,0,0,.2);
+    box-shadow: 0 0 0px rgba(255,255,255,.1),inset 0 0 50px rgba(0,0,0,.2);
+    transition: box-shadow 0.6s;
+    
+}
+
+.btn.hover,.btn:hover{
+  -webkit-box-shadow: 0 0 100px rgba(66,118,196,1),inset 0 0 50px rgba(255,255,255,.2);
+          box-shadow: 0 0 100px rgba(66,118,196,1),inset 0 0 50px rgba(255,255,255,.2);
 }
 
 .btn.red{
     background-color: #C6272A;
 }
+.btn.red.hover,.btn.red:hover{
+  -webkit-box-shadow: 0 0 100px rgba(198,39,42,1),inset 0 0 50px rgba(255,255,255,.2);
+          box-shadow: 0 0 100px rgba(198,39,42,1),inset 0 0 50px rgba(255,255,255,.2);
+}
+
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
@@ -78,14 +92,10 @@ p {
 .cover {
   padding: 0 20px;
 }
-.cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
-}
 
 .fade{
-    -webkit-transition: opacity 0.4s; /* Safari */
-    transition: opacity 0.4s;
+    -webkit-transition: all 0.4s; /* Safari */
+    transition: all 0.4s;
     -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
     opacity: 1;
