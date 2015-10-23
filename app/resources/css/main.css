@@ -8,29 +8,30 @@ html,body{
   height: 100%;
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
   padding: 0;
   margin:0;
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
+  text-shadow: 0 2px 3px rgba(0,0,0,.5);
     margin-top: 20px;
     margin-bottom: 10px;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1.29;
 }
 h1, .h1 {
-    font-size: 56px;
+    font-size: 60px;
     margin-bottom: 50px;
+    margin-top:50px;
 }
 
 .lead {
-    font-size: 31px;
+    font-size: 30px;
     margin-bottom: 20px;
-    font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.29;
+    font-weight: normal;
 }
 p {
     margin: 0 0 10px;
@@ -39,10 +40,8 @@ p {
 .btn{
     margin:10px 40px;
     padding: 10px 20px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #31b0d5;
-    border-color: #269abc;
+    color: #ddd;
+    background-color: #4276C4;
     outline: 0;
     line-height: 1.33;
     border-radius: 6px;
@@ -50,8 +49,7 @@ p {
 }
 
 .btn.red{
-    background-color: #D33232;
-    border-color: #BA2727;  
+    background-color: #C6272A;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -86,8 +84,8 @@ p {
 }
 
 .fade{
-    -webkit-transition: all 0.4s; /* Safari */
-    transition: all 0.4s;
+    -webkit-transition: opacity 0.4s; /* Safari */
+    transition: opacity 0.4s;
     -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
     opacity: 1;
@@ -95,4 +93,25 @@ p {
 
 .hide{
   opacity: 0;
+}
+
+#question{
+  padding: 0 5%;
+}
+
+.axa-logo {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin-left:-40px;
+    margin-right: 5px;
+    margin-bottom: -2px;
+    background: url(../img/logo-axa.svg) no-repeat left center;
+    background-size: auto 100%;
+}
+
+.center{
+  position: absolute;
+  top: 50px;
+  left: 50%;
 }
