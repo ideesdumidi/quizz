@@ -1,4 +1,4 @@
->Ce repository fait partie d'un projet plus vaste dont le but est de créer un peripherique autonome proposant un questionnaire auquel on peut répondre à l'aide de 2 gros boutons.
+>Ce repository fait partie d'un projet plus vaste dont le but est de créer un questionnaire autonome auquel on peut répondre à l'aide de 2 gros buzzer.
 
 #Quizz-web-app
 
